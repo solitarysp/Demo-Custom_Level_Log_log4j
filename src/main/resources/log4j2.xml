@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <Property name="PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} | %-5level | %t | (%13F:%L) | %X{correlationID} | %X{clientIP} | %msg %n</Property>
+        <!--Config log Level INFO sẽ show log. Như vậy là các level <=400 sẽ được show log : https://logging.apache.org/log4j/2.x/manual/customloglevels.html-->
+        <property name="LOG_LEVEL">INFO</property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${PATTERN}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="${LOG_LEVEL}">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
